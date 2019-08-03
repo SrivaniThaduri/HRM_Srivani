@@ -1,0 +1,4 @@
+com\CommonMethods\BaseClass.class
+com\TestCases\TestCases.class
+com\Webpages\WebPageObjects.class
+com\TestRunner\LaunchApplication.class
