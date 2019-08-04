@@ -34,7 +34,6 @@ public class BaseClass
 	public static WebDriver driver;
 	public static ExtentReports reports;
 	public static ExtentTest logger;
-	public static ITestResult result;
 	public static void LoginMethod(String browser)
 	{
 	if(browser=="Chrome")
@@ -81,7 +80,7 @@ public class BaseClass
 	}
 	public static String ReadDatafromExcel(String Sheetname, int rownum, int colno) throws IOException
 	{
-		File file=new File("C:\\Users\\Naveen Reddy\\eclipse-workspace\\HRM\\TestData\\WebTestdata.xlsx");
+		File file=new File("C:\\Users\\Naveen Reddy\\eclipse-workspace\\HRM\\TestData\\Srivani.xlsx");
 		FileInputStream fis=new FileInputStream(file);
 		XSSFWorkbook xssfw=new XSSFWorkbook(fis);
 		XSSFSheet xssfs=xssfw.getSheet("Sheet1");
@@ -106,8 +105,9 @@ public class BaseClass
 		reports.attachReporter(reporter);
 	}
 	@AfterMethod
-	public void attachScreenShottoReport() throws IOException
+	public void attachScreenShottoReport(ITestResult result) throws IOException
 	{
+		   
 		Reporter.log("Report Process Started");
 		if(result.getStatus()==ITestResult.SUCCESS) 
 		{
